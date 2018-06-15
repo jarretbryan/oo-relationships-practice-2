@@ -3,30 +3,34 @@ require 'pry'
 class Cat
 
   attr_reader :name
-  attr_accessor :sick
-
+  attr_accessor :status
   @@all = []
-
-  def initialize(name)
-    @name = name
-    @sick = false
-    @@all << self
-  end
 
   def self.all
     @@all
   end
 
+  def initialize(name, status)
+    @name = name
+    @status = status
+    self.class.all << self
+  end
+
   def pets
-    Pet.all.select do |pet|
-      @name == pet.cat_name
+    Pet.all.select do |pet_ins|
+      #binding.pry
+      pet_ins.cat == self
     end
   end
 
   def owners
-    self.pets.map do |pet|
-      pet.owner_name
+    self.pets.select do |pet_ins|
+      pet_ins.owner == self
     end
+  end
+
+  def get_sick
+    self.status = "sick"
   end
 
 end

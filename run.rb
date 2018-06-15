@@ -4,10 +4,10 @@ require_relative './owner.rb'
 
 require 'pry'
 
-miu_miu = Cat.new("Miu Miu")
-doraemon = Cat.new("Doraemon")
-bixby = Cat.new("Bixby")
-tchalla = Cat.new("tchalla")
+miu_miu = Cat.new("Miu Miu", "healthy")
+doraemon = Cat.new("Doraemon", "sick")
+bixby = Cat.new("Bixby", "sick")
+tchalla = Cat.new("tchalla", "healthy")
 
 john = Owner.new("John")
 nakia = Owner.new("Nakia")
@@ -18,4 +18,4 @@ Pet.new(nakia, bixby)
 Pet.new(john, miu_miu)
 Pet.new(zip, doraemon)
 
-binding.pry
+Pry.start

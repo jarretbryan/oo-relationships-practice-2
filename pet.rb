@@ -2,18 +2,17 @@ require 'pry'
 
 class Pet
 
-  attr_reader :owner, :cat, :owner_name, :cat_name
-
+  attr_accessor :owner, :cat
   @@all = []
-
-  def initialize(owner, cat)
-    @owner_name = owner.name
-    @cat_name = cat.name
-    @@all.push << self
-  end
 
   def self.all
     @@all
+  end
+
+  def initialize(owner, cat)
+    @owner = owner
+    @cat = cat
+    self.class.all << self
   end
 
 
